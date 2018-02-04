@@ -1,0 +1,23 @@
+{
+  "time": "2017-12-14 18:32:15 UTC",
+  "agents": [
+    {
+      "external_id": "8",
+      "first_name": "Mikael",
+      "last_name": "Månsson",
+      "email": "sync@sedemo.se"
+    }
+  ],
+  "data": {
+    "8": {
+      "closed_requests": "1"
+    }
+  },
+  "Statistics": {
+    "incoming_mail_errands": "1",
+    "answered_mail_errands": "3",
+    "total_closed_errands": "1",
+    "handling_time": "0",
+    "lying_untouch_mails": "67"
+  }
+}

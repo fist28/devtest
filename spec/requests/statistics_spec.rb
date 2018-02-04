@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe 'API Statistics', type: :request do
   describe 'POST /api/statistics' do
     describe 'authorization' do
+      context 'when valid token' do
+        let(:headers) { { access_token: Rails.application.secrets.api_access_token } }
+        let(:params) {{}}
+        before { post '/api/statistics', params: fixture('statistics'), headers: headers  }
+        it 'has access' do
+          expect(response).to_not have_http_status(403)
+        end
+      end
+
       context 'when invalid token' do
         let(:headers) { { access_token: 'wrong' } }
         let(:params) { {} }
