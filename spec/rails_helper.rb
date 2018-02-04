@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'database_cleaner'
 require 'support/factory_bot'
+require 'support/request_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -37,6 +38,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
+  config.include RequestHelper
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
