@@ -14,4 +14,8 @@ RSpec.describe Statistic, type: :model do
   describe 'associations' do
     it { should belong_to(:user) }
   end
+
+  it "has a valid factory" do
+    create(:statistic).should be_valid
+  end
 end

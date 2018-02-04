@@ -10,4 +10,8 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_one(:statistic) }
   end
+
+  it "has a valid factory" do
+    create(:user).should be_valid
+  end
 end
