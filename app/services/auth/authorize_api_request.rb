@@ -1,5 +1,5 @@
 class Auth::AuthorizeApiRequest
-  KEY = :access_token.freeze
+  KEY = 'access-token'.freeze
   attr_reader :params, :headers
 
   def initialize(params, headers)

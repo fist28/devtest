@@ -4,7 +4,7 @@ RSpec.describe 'API Statistics', type: :request do
   describe 'POST /api/statistics' do
     describe 'authorization' do
       context 'when valid token' do
-        let(:headers) { { access_token: Rails.application.secrets.api_access_token } }
+        let(:headers) { { 'access-token' => Rails.application.secrets.api_access_token } }
         let(:params) {{}}
         before { post '/api/statistics', params: fixture('statistics'), headers: headers  }
         it 'has access' do
@@ -13,7 +13,7 @@ RSpec.describe 'API Statistics', type: :request do
       end
 
       context 'when invalid token' do
-        let(:headers) { { access_token: 'wrong' } }
+        let(:headers) { { 'access-token' => 'wrong' } }
         let(:params) { {} }
         before { post '/api/statistics', params: params, headers: headers }
 

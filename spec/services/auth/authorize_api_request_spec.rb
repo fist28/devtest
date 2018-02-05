@@ -7,7 +7,7 @@ RSpec.describe Auth::AuthorizeApiRequest do
     context 'with access token in params' do
       let(:header) { {} }
       context 'when token is correct' do
-        let(:params) { { access_token: correct_token } }
+        let(:params) { { 'access-token' => correct_token } }
 
         it 'allow access to resource' do
           expect(service.call).to eq true
@@ -15,7 +15,7 @@ RSpec.describe Auth::AuthorizeApiRequest do
       end
 
       context 'when token is incorrect' do
-        let(:params) { { access_token: :incorrect_token } }
+        let(:params) { { 'access-token' => 'incorrect_token' } }
 
         it 'railse error InvalidToken' do
           expect(service.call).to be false
@@ -26,7 +26,7 @@ RSpec.describe Auth::AuthorizeApiRequest do
     context 'with access token in headers' do
       let(:params) { {} }
       context 'when token is correct' do
-        let(:header) { {access_token: correct_token } }
+        let(:header) { { 'access-token' => correct_token } }
 
         it 'allow access to resource' do
           expect(service.call).to eq true
@@ -34,7 +34,7 @@ RSpec.describe Auth::AuthorizeApiRequest do
       end
 
       context 'when token is incorrect' do
-        let(:header) { { access_token: :incorrect_token } }
+        let(:header) { { 'access-token' => 'incorrect_token' } }
 
         it 'railse error InvalidToken' do
           expect(service.call).to be false
